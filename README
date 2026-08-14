@@ -45,3 +45,4 @@ SMB: Habilitar SMB Signing obligatorio.
 WinRM: Migrar a HTTPS y restringir ACLs.
 
 Monitorización: Implementar EDR para detectar enumeración no autorizada.
+
