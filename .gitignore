@@ -1,0 +1,58 @@
+# === Sistema Operativo ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === Editores / IDEs ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# === Archivos de credenciales / hashes capturados (sensibles) ===
+*.txt
+!README.txt
+hashh.txt
+hash.txt
+*.hash
+*.ntlm
+*.ntlmv2
+loot/
+creds/
+credentials*
+secrets*
+
+# === Capturas de Responder ===
+Responder/logs/
+*.pcap
+*.pcapng
+
+# === Wordlists descargadas o generadas localmente ===
+wordlists/
+*.dict
+
+# === Salidas de nmap ===
+nmap/
+*.nmap
+*.gnmap
+*.xml
+
+# === Shells / payloads generados ===
+*.exe
+*.bin
+shell*
+payload*
+
+# === Archivos temporales de John the Ripper ===
+john.pot
+*.pot
+
+# === Entornos virtuales Python (si usas scripts) ===
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# === Logs generales ===
+*.log
