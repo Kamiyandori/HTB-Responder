@@ -109,6 +109,3 @@ Recomendaciones para mitigar este vector de ataque en entornos reales:
 
 ---
 
-## ⚠️ Disclaimer
-
-Este write-up documenta la resolución de una máquina del laboratorio **Hack The Box** con fines educativos. No debe aplicarse ninguna técnica aquí descrita contra sistemas sin autorización explícita.
